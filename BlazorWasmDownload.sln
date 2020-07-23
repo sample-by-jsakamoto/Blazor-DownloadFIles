@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30317.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{5A658DE0-361E-4D74-BF63-C679BA51738A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmDownload.Client", "Client\BlazorWasmDownload.Client.csproj", "{D0665520-3510-4DBD-99DE-E5C8802ABC6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D0C0104-1953-4E59-9085-A6975540DCAA}
+	EndGlobalSection
+EndGlobal
