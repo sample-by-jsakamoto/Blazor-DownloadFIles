@@ -1,4 +1,5 @@
 ﻿@page "/download"
+@inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
 
 <h1>Download Files</h1>
@@ -15,6 +16,12 @@
     </button>
 </p>
 
+<p>
+    <button class="btn btn-primary" @onclick="OnClickDownloadViaHttpClientButton">
+        Download .NET icon file from the C# code with JavaScript helper via HttpClient
+    </button>
+</p>
+
 @code
 {
     private async Task OnClickDownloadButton()
@@ -25,6 +32,26 @@
             {
                 Url = "files/dotnet-icon",
                 FileName = "dotnet.ico"
+            });
+    }
+
+    public async Task OnClickDownloadViaHttpClientButton()
+    {
+        // Please imagine the situation that the downloading files API is protected by
+        // token-based authorization (not cookie-based authorization).
+        // In that case, the user can not download it from the href link of the anchor tag directly.
+        // In this scenario, the application has to get a byte array of the file from
+        // the API endpoint by HttpClient with token and make the byte array can be downloadable.
+
+        var bytes = await HttpClient.GetByteArrayAsync("files/dotnet-icon");
+
+        await JSRuntime.InvokeVoidAsync(
+            "downloadFromByteArray",
+            new
+            {
+                ByteArray = bytes,
+                FileName = "dotnet.ico",
+                ContentType = "image/x-icon"
             });
     }
 }
