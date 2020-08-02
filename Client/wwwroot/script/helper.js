@@ -1,4 +1,7 @@
 "use strict";
+function clickElement(element) {
+    element.click();
+}
 function downloadFromUrl(options) {
     var _a;
     // console.log(options);

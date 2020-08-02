@@ -26,6 +26,14 @@
 </p>
 
 <p>
+    <button class="btn btn-primary" @onclick="OnClickDownloadButtonUsingHiddenAnchorTag">
+        <span class="oi oi-cloud-download" aria-hidden="true"></span>
+        Download a file from C# code with hidden &lt;a/&gt; tag
+    </button>
+    <a href="pictures/1" target="_top" download="Space Needle.jpeg" @ref="HiddenAnchorTag" style="display:none;"></a>
+</p>
+
+<p>
     <button class="btn btn-primary" @onclick="OnClickDownloadViaHttpClientButton">
         <span class="oi oi-cloud-download" aria-hidden="true"></span>
         Download a file from in-memory byte array inside of Blazor app
@@ -43,6 +51,16 @@
         await JSRuntime.InvokeVoidAsync(
             "downloadFromUrl",
             new { Url = "pictures/1", FileName = "Space Needle.jpeg" });
+    }
+
+    private ElementReference HiddenAnchorTag;
+
+    private async Task OnClickDownloadButtonUsingHiddenAnchorTag()
+    {
+        var res = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (res == false) return;
+
+        await JSRuntime.InvokeVoidAsync("clickElement", HiddenAnchorTag);
     }
 
     public async Task OnClickDownloadViaHttpClientButton()

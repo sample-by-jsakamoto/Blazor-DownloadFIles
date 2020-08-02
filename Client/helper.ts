@@ -1,4 +1,8 @@
-﻿function downloadFromUrl(options: { url: string, fileName?: string }): void {
+﻿function clickElement(element: HTMLElement): void {
+    element.click();
+}
+
+function downloadFromUrl(options: { url: string, fileName?: string }): void {
     // console.log(options);
     const anchorElement = document.createElement('a');
     anchorElement.href = options.url;
