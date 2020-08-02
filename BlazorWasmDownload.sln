@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{5A658D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmDownload.Client", "Client\BlazorWasmDownload.Client.csproj", "{D0665520-3510-4DBD-99DE-E5C8802ABC6B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmDownload.Host", "Host\BlazorWasmDownload.Host.csproj", "{51844CC5-4F5F-4B17-8454-4651B31E8568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0665520-3510-4DBD-99DE-E5C8802ABC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51844CC5-4F5F-4B17-8454-4651B31E8568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51844CC5-4F5F-4B17-8454-4651B31E8568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51844CC5-4F5F-4B17-8454-4651B31E8568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51844CC5-4F5F-4B17-8454-4651B31E8568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

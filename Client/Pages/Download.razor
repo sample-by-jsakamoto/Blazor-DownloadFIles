@@ -5,34 +5,44 @@
 <h1>Download Files</h1>
 
 <p>
-    <a href="files/dotnet-icon" class="btn btn-primary" target="_top" download="dotnet.ico">
-        Download .NET icon file from the server by anchor tag
+    <a href="pictures/1" class="btn btn-primary" download="Space Needle.jpeg">
+        <span class="oi oi-cloud-download" aria-hidden="true"></span>
+        Try to download a file by simple &lt;a/&gt; tag (but will not starting download)
+    </a>
+</p>
+
+<p>
+    <a href="pictures/1" class="btn btn-primary" target="_top" download="Space Needle.jpeg">
+        <span class="oi oi-cloud-download" aria-hidden="true"></span>
+        Download a file from by &lt;a/&gt; tag with 'target="_top"'
     </a>
 </p>
 
 <p>
     <button class="btn btn-primary" @onclick="OnClickDownloadButton">
-        Download .NET icon file from the C# code with JavaScript helper
+        <span class="oi oi-cloud-download" aria-hidden="true"></span>
+        Download a file from C# code with JavaScript helper
     </button>
 </p>
 
 <p>
     <button class="btn btn-primary" @onclick="OnClickDownloadViaHttpClientButton">
-        Download .NET icon file from the C# code with JavaScript helper via HttpClient
+        <span class="oi oi-cloud-download" aria-hidden="true"></span>
+        Download a file from in-memory byte array inside of Blazor app
     </button>
 </p>
+
 
 @code
 {
     private async Task OnClickDownloadButton()
     {
+        var res = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (res == false) return;
+
         await JSRuntime.InvokeVoidAsync(
             "downloadFromUrl",
-            new
-            {
-                Url = "files/dotnet-icon",
-                FileName = "dotnet.ico"
-            });
+            new { Url = "pictures/1", FileName = "Space Needle.jpeg" });
     }
 
     public async Task OnClickDownloadViaHttpClientButton()
@@ -43,15 +53,16 @@
         // In this scenario, the application has to get a byte array of the file from
         // the API endpoint by HttpClient with token and make the byte array can be downloadable.
 
-        var bytes = await HttpClient.GetByteArrayAsync("files/dotnet-icon");
+        var bytes = await HttpClient.GetByteArrayAsync("pictures/1");
 
         await JSRuntime.InvokeVoidAsync(
             "downloadFromByteArray",
             new
             {
                 ByteArray = bytes,
-                FileName = "dotnet.ico",
-                ContentType = "image/x-icon"
+                FileName = "Space Needle.jpeg",
+                ContentType = "image/jpeg"
             });
     }
+
 }
